@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://genzrizzcode.github.io/codingClub",  
+  "homepage": "https://genzrizzcode.github.io/svelteExamples",  
 
   "scripts": {
     "dev": "vite",
