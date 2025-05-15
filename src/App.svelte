@@ -16,7 +16,7 @@
   </div>
 
   <p>
-    Made with Svelte+Vite
+    Made with Svelte + Vite
   </p>
 </main>
 
