@@ -10,7 +10,7 @@
   function unlockAchievement(message = '🏆 Achievement unlocked!') {
     alertMessage = message;
     showAlert = true;
-    setTimeout(() => showAlert = false, 3000);
+    setTimeout(() => showAlert = false, 5000);
   }
   $: if ($increaseAmountClicks === 6 && !showAlert) {
     unlockAchievement('First 5 Manual Upgrades!');
