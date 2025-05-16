@@ -12,6 +12,13 @@
     showAlert = true;
     setTimeout(() => showAlert = false, 3000);
   }
+  $: if ($increaseAmountClicks === 6 && !showAlert) {
+    unlockAchievement('First 5 Manual Upgrades!');
+  }
+
+  $: if ($increaseAmountAutoClicks === 6 && !showAlert) {
+    unlockAchievement('First 5 Auto Upgrades!');
+  }
 </script>
 
 <main>
@@ -68,10 +75,3 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 </style>
-
-  $: if ($increaseAmountClicks === 6 && !showAlert) {
-    unlockAchievement('First 5 Manual Upgrades!')
-  }
-  $: if ($increaseAmountAutoClicks === 6 && !showAlert) {
-    unlockAchievement('First 5 Auto Upgrades!')
-  }
