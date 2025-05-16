@@ -1,11 +1,14 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  // @ts-ignore
+  import Counter, { increaseAmountClicks, increaseAmountAutoClicks } from './lib/Counter.svelte'
 
   let showAlert = false;
+  let alertMessage = '';
 
-  function unlockAchievement() {
+  function unlockAchievement(message = '🏆 Achievement unlocked!') {
+    alertMessage = message;
     showAlert = true;
     setTimeout(() => showAlert = false, 3000);
   }
@@ -18,21 +21,19 @@
   </div>
   <h1>Svelte Counter Game</h1>
 
-  <button on:click={unlockAchievement}>Unlock Achievement</button>
+
 
   <div class="card">
     <Counter />
   </div>
-
+  {#if showAlert}
+    <div class="achievement-alert">
+      {alertMessage}
+    </div><br><br>
+  {/if}
   <p>
     Made with Svelte + Vite
   </p>
-
-  {#if showAlert}
-    <div class="achievement-alert">
-      🏆 Achievement unlocked!
-    </div>
-  {/if}
 </main>
 
 <style>
@@ -59,7 +60,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     z-index: 999;
-    animation: fadein 0.5s ease;
+    animation: fadein 0.75s ease-in-out;
   }
 
   @keyframes fadein {
@@ -67,3 +68,10 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 </style>
+
+  $: if ($increaseAmountClicks === 6 && !showAlert) {
+    unlockAchievement('First 5 Manual Upgrades!')
+  }
+  $: if ($increaseAmountAutoClicks === 6 && !showAlert) {
+    unlockAchievement('First 5 Auto Upgrades!')
+  }

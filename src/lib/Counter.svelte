@@ -1,5 +1,7 @@
 <script>
-  let increaseAmountClicks = $state(0);
+  import { writable, get } from 'svelte/store';
+  export const increaseAmountClicks = writable(1);
+  export const increaseAmountAutoClicks = writable(1);
   let incrementAmount = $state(1);
   let increaseAutoAmount = $state(5);
   let count = $state(0);
@@ -14,13 +16,12 @@
   const boostIncrement = () => {
     if (count >= clickCost) {
       count -= clickCost
-      increaseAmountClicks += 1;
-      if (increaseAmountClicks === 1) {
+      if (get(increaseAmountClicks) === 1) {
         incrementAmount += 9;
-      }
-      else {
+      } else {
         incrementAmount += 10;
       }
+      increaseAmountClicks.update(n => n + 1);
       clickCost *= 5;
     };
   };
@@ -37,6 +38,7 @@
     if (count >= autoCost) {
       count -= autoCost;
       increaseAutoAmount += 5;
+      increaseAmountAutoClicks.update(n => n + 1);
       autoCost *= 7;
     }
   };
