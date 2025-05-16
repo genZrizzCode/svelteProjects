@@ -7,7 +7,7 @@ A collection of Svelte projects demonstrating what you can do with Svelte.
 - ⚡️ Built with [Svelte](https://svelte.dev) and [Vite](https://vitejs.dev)
 - 📡 Deployed using [GitHub Pages](https://pages.github.com/)
 - 🔧 Easily customizable and extendable
-- 🌐 Live Site! Click [Here](https://genzrizzcode.github.io/codingClub_AMS/)
+- 🌐 Live Site! Click [Here](https://genzrizzcode.github.io/svelteProjects/)
 
 ## 🛠️ Running Locally Through Terminal
 
