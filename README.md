@@ -1,6 +1,6 @@
 # Svelte Examples
 
-A collection of Svelte projects demonstrating how to use the Svelte framework with Vite and deploy via GitHub Pages.
+A collection of Svelte projects demonstrating what you can do with Svelte.
 
 ## 🚀 Features
 
