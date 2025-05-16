@@ -1,8 +1,8 @@
 <script>
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
-  // @ts-ignore
-  import Counter, { increaseAmountClicks, increaseAmountAutoClicks } from './lib/Counter.svelte'
+  import Counter from './lib/Counter.svelte';
+  import { increaseAmountClicks, increaseAmountAutoClicks } from './lib/stores.js';
 
   let showAlert = false;
   let alertMessage = '';

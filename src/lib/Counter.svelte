@@ -1,7 +1,6 @@
 <script>
-  import { writable, get } from 'svelte/store';
-  export const increaseAmountClicks = writable(1);
-  export const increaseAmountAutoClicks = writable(1);
+  import { get } from 'svelte/store';
+  import { increaseAmountClicks, increaseAmountAutoClicks } from './stores.js';
   let incrementAmount = $state(1);
   let increaseAutoAmount = $state(5);
   let count = $state(0);
