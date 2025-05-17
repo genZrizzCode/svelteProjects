@@ -4,6 +4,9 @@
   import Counter from './lib/Counter.svelte';
   import { increaseAmountClicks, increaseAmountAutoClicks } from './lib/stores.js';
 
+  let unlockedManual = false;
+  let unlockedAuto = false;
+
   let showAlert = false;
   let alertMessage = '';
 
@@ -12,11 +15,13 @@
     showAlert = true;
     setTimeout(() => showAlert = false, 5000);
   }
-  $: if ($increaseAmountClicks === 6 && !showAlert) {
+  $: if ($increaseAmountClicks === 6 && !unlockedManual) {
+    unlockedManual = true;
     unlockAchievement('First 5 Manual Upgrades!');
   }
 
-  $: if ($increaseAmountAutoClicks === 6 && !showAlert) {
+  $: if ($increaseAmountAutoClicks === 6 && !unlockedAuto) {
+    unlockedAuto = true;
     unlockAchievement('First 5 Auto Upgrades!');
   }
 </script>
